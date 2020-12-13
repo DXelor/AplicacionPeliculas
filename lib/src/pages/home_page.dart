@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:peliculas/src/providers/peliculas_provider.dart';
 
 import 'package:peliculas/src/widgets/card_swiper_widget.dart';

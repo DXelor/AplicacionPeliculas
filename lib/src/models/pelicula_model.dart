@@ -5,7 +5,7 @@ class Peliculas {
   Peliculas.fromJsonList(List<dynamic> jsonList) {
     if (jsonList == null) return;
     for (var item in jsonList) {
-      final pelicula = new Pelicula.frmJsonMap(item);
+      final pelicula = new Pelicula.fromJsonMap(item);
       items.add(pelicula);
     }
   }
@@ -44,7 +44,7 @@ class Pelicula {
     this.voteCount,
   });
 
-  Pelicula.frmJsonMap(Map<String, dynamic> json) {
+  Pelicula.fromJsonMap(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = json['genre_ids'].cast<int>();
