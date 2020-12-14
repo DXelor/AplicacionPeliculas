@@ -52,10 +52,16 @@ class HomePage extends StatelessWidget {
             'Populares',
             style: Theme.of(context).textTheme.headline5,
           ),
-          // FutureBuilder(
-          //   future: ,
-          //   builder: null
-          // )
+          FutureBuilder(
+              future: peliculasProvider.getPopulares(),
+              builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
+                snapshot.data.forEach((p) => print(p.title));
+                return Container(
+                  child: Column(
+                    children: [Text('aqui va el titulo')],
+                  ),
+                );
+              })
         ],
       ),
     );
