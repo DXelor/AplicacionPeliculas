@@ -60,4 +60,12 @@ class Pelicula {
     voteAverage = json['vote_average'] / 1;
     voteCount = json['vote_count'];
   }
+
+  getPosterImg() {
+    if (posterPath == null) {
+      return 'https://insidelatinamerica.net/wp-content/uploads/2018/01/noImg_2.jpg';
+    } else {
+      return 'https://image.tmdb.org/t/p/original/$posterPath';
+    }
+  }
 }
