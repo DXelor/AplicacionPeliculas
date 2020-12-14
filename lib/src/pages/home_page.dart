@@ -22,7 +22,8 @@ class HomePage extends StatelessWidget {
       ),
       body: Container(
         child: Column(
-          children: [_swiperTargetas()],
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [_swiperTargetas(), _footer(context)],
         ),
       ),
     );
@@ -39,6 +40,24 @@ class HomePage extends StatelessWidget {
               height: 400.0, child: Center(child: CircularProgressIndicator()));
         }
       },
+    );
+  }
+
+  Widget _footer(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      child: Column(
+        children: [
+          Text(
+            'Populares',
+            style: Theme.of(context).textTheme.headline5,
+          ),
+          // FutureBuilder(
+          //   future: ,
+          //   builder: null
+          // )
+        ],
+      ),
     );
   }
 }
