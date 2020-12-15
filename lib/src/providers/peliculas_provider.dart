@@ -40,6 +40,8 @@ class PeliculasProvider {
 
   Future<List<Pelicula>> getPopulares() async {
     _popularesPage++;
+
+    print('Cargando Siguientes...');
     final url = Uri.https(_url, '3/movie/popular', {
       'api_key': _apikey,
       'language': _language,
