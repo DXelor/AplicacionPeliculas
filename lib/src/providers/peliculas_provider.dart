@@ -49,7 +49,6 @@ class PeliculasProvider {
     final resp = await _procesarRespuesta(url);
     _populares.addAll(resp);
     popularesSink(_populares);
-
     return resp;
   }
 }
