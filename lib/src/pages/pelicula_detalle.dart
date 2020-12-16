@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 
 import 'package:peliculas/src/models/pelicula_model.dart';
@@ -20,7 +18,12 @@ class PeliculaDetalle extends StatelessWidget {
               SizedBox(
                 height: 10.0,
               ),
-              _posterTitulo(context, pelicula)
+              _posterTitulo(context, pelicula),
+              _descripcion(pelicula),
+              _descripcion(pelicula),
+              _descripcion(pelicula),
+              _descripcion(pelicula),
+              _descripcion(pelicula),
             ]))
           ],
         ));
@@ -71,12 +74,34 @@ class PeliculaDetalle extends StatelessWidget {
                 Text(
                   pelicula.title,
                   style: Theme.of(context).textTheme.headline4,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                Text(pelicula.originalTitle),
+                Text(pelicula.originalTitle,
+                    style: Theme.of(context).textTheme.subtitle1,
+                    overflow: TextOverflow.ellipsis),
+                Row(
+                  children: [
+                    Icon(Icons.star_border),
+                    Text(
+                      pelicula.voteAverage.toString(),
+                      style: Theme.of(context).textTheme.subtitle1,
+                    )
+                  ],
+                )
               ],
             ),
           )
         ],
+      ),
+    );
+  }
+
+  Widget _descripcion(Pelicula pelicula) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+      child: Text(
+        pelicula.overview,
+        textAlign: TextAlign.justify,
       ),
     );
   }
