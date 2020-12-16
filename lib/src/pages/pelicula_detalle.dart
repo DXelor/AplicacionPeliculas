@@ -19,11 +19,7 @@ class PeliculaDetalle extends StatelessWidget {
                 height: 10.0,
               ),
               _posterTitulo(context, pelicula),
-              _descripcion(pelicula),
-              _descripcion(pelicula),
-              _descripcion(pelicula),
-              _descripcion(pelicula),
-              _descripcion(pelicula),
+              _descripcion(pelicula)
             ]))
           ],
         ));
