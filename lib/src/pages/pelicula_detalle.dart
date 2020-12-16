@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 
 import 'package:peliculas/src/models/pelicula_model.dart';
@@ -13,6 +15,13 @@ class PeliculaDetalle extends StatelessWidget {
         body: CustomScrollView(
           slivers: [
             _crearAppbar(pelicula),
+            SliverList(
+                delegate: SliverChildListDelegate([
+              SizedBox(
+                height: 10.0,
+              ),
+              _posterTitulo(context, pelicula)
+            ]))
           ],
         ));
   }
@@ -36,6 +45,38 @@ class PeliculaDetalle extends StatelessWidget {
           fadeInDuration: Duration(milliseconds: 15),
           fit: BoxFit.cover,
         ),
+      ),
+    );
+  }
+
+  Widget _posterTitulo(BuildContext context, Pelicula pelicula) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: Image(
+              image: NetworkImage(pelicula.getPosterImg()),
+              height: 150.0,
+            ),
+          ),
+          SizedBox(
+            width: 20.0,
+          ),
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  pelicula.title,
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+                Text(pelicula.originalTitle),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
