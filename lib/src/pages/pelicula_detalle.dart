@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 
 import 'package:peliculas/src/models/pelicula_model.dart';
@@ -130,11 +128,31 @@ class PeliculaDetalle extends StatelessWidget {
         controller: PageController(viewportFraction: 0.3, initialPage: 1),
         itemCount: actores.length,
         itemBuilder: (context, i) {
-          return Text(actores[i].name);
+          _actorTarjeta(actores[i]);
         },
       ),
     );
   }
 
-  Widget _actorTarjeta
+  Widget _actorTarjeta(Actor actor) {
+    return Container(
+      child: Column(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: FadeInImage(
+              image: NetworkImage(actor.getFoto()),
+              placeholder: AssetImage('assets/img/no-image.jpg'),
+              height: 150.0,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Text(
+            actor.name,
+            overflow: TextOverflow.ellipsis,
+          )
+        ],
+      ),
+    );
+  }
 }
