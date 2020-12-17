@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 
 import 'package:peliculas/src/models/pelicula_model.dart';
@@ -120,5 +122,19 @@ class PeliculaDetalle extends StatelessWidget {
         });
   }
 
-  Widget _crearActoresPageView(List<Actor> actores) {}
+  Widget _crearActoresPageView(List<Actor> actores) {
+    return SizedBox(
+      height: 200.0,
+      child: PageView.builder(
+        pageSnapping: false,
+        controller: PageController(viewportFraction: 0.3, initialPage: 1),
+        itemCount: actores.length,
+        itemBuilder: (context, i) {
+          return Text(actores[i].name);
+        },
+      ),
+    );
+  }
+
+  Widget _actorTarjeta
 }
