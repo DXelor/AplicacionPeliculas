@@ -16,18 +16,25 @@ class DataSearch extends SearchDelegate {
   @override
   Widget buildLeading(BuildContext context) {
     //implement buildLeading : icono a la izquierda del AppBar
-    throw UnimplementedError();
+    return IconButton(
+        icon: AnimatedIcon(
+          icon: AnimatedIcons.menu_arrow,
+          progress: transitionAnimation,
+        ),
+        onPressed: () {
+          print('Leading Icons Press');
+        });
   }
 
   @override
   Widget buildResults(BuildContext context) {
     // implement buildResults : es el builder que da los resultados que se muestran
-    throw UnimplementedError();
+    return Container();
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
     // implement buildSuggestions: sugerencias de busqueda
-    throw UnimplementedError();
+    return Container();
   }
 }
