@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas/src/models/pelicula_model.dart';
 
 class DataSearch extends SearchDelegate {
+  final peliculas = [
+    'Spiderman',
+    'Superman',
+    'Aquaman',
+    'Ironman',
+    'Batman',
+  ];
+
+  final peliculasRecientes = ['Capitan America', 'Linterna Verde'];
+
   @override
   List<Widget> buildActions(BuildContext context) {
     //  implement buildActions : son las acciones del AppBar
@@ -22,7 +33,7 @@ class DataSearch extends SearchDelegate {
           progress: transitionAnimation,
         ),
         onPressed: () {
-          close(context, null)
+          close(context, null);
         });
   }
 
@@ -35,6 +46,22 @@ class DataSearch extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     // implement buildSuggestions: sugerencias de busqueda
-    return Container();
+
+    final listaSugerida = (query.isEmpty)
+        ? peliculasRecientes
+        : peliculas
+            .where((p) => p.toLowerCase().startsWith(query.toLowerCase()))
+            .toList();
+
+    return ListView.builder(
+      itemCount: listaSugerida.length,
+      itemBuilder: (context, i) {
+        return ListTile(
+          leading: Icon(Icons.movie),
+          title: Text(listaSugerida[i]),
+          onTap: () {},
+        );
+      },
+    );
   }
 }
