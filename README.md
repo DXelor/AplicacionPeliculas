@@ -2,7 +2,7 @@
 
 flutter project for movies.
 
-## Notas
+## Notes
 
 this project is made with the intention of practice flutter and Dart.
 
@@ -15,7 +15,6 @@ Dart
 
 ## Flutter
 
-Si quieres saber más de flutter:
 If you need know more of flutter:
 
 - [Lab: write you first App with Flutter](https://flutter.dev/docs/get-started/codelab)
